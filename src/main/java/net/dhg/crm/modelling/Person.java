@@ -34,6 +34,7 @@ public class Person {
 
     private List<Object> list;
 
+    @Autowired
     private Dog dog;
 
 
