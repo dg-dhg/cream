@@ -1,0 +1,13 @@
+#person:
+#  name: DengSir
+#  age: 23
+#  happy: true
+#  birth: 2010/12/01
+#  map: {k1: value1,k2: value2}
+#  list:
+#    - code
+#    - girl
+#    - music
+#  dog:
+#    name: orange
+#    age: 12

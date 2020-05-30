@@ -23,16 +23,16 @@ server:
 mybatis:
   type-aliases-package: net.dhg.crm.entity
   mapper-locations: classpath:mapper/*Mapper.xml
-Person:
-  name: DengSir
-  age: 12
+person:
+  name: ${random.uuid}
+  age: ${random.int}
   happy: true
   birth: 2010/12/01
   map: {k1: value1,k2: value2}
   list:
-    - code
+    - ${person.apple:good}code #这是一个相当于 ((person.apple).isExist?person.apple:good).concat("code")
     - girl
     - music
   dog:
-    name: orange
+    name: ${person.name}`s orange
     age: 12
