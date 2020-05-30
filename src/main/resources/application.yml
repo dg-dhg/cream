@@ -21,7 +21,7 @@ server:
 #  level:
 #    com.alexey.LoggerTest: debug
 mybatis:
-  type-aliases-package: com.example.crmone.entity
+  type-aliases-package: net.dhg.crm.entity
   mapper-locations: classpath:mapper/*Mapper.xml
 Person:
   name: DengSir
@@ -36,5 +36,3 @@ Person:
   dog:
     name: orange
     age: 12
-
-
