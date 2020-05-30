@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/crm?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+server:
+  servlet:
+    context-path: /apk
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: /var/log/tomcat/
+#  file: /var/log/tomcat/sell.log
+#  level:
+#    com.alexey.LoggerTest: debug
+mybatis:
+  type-aliases-package: com.example.crmone.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+Person:
+  name: DengSir
+  age: 12
+  happy: true
+  birth: 2010/12/01
+  map: {k1: value1,k2: value2}
+  list:
+    - code
+    - girl
+    - music
+  dog:
+    name: orange
+    age: 12
+
+
