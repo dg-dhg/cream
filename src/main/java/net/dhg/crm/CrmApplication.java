@@ -17,6 +17,5 @@ public class CrmApplication {
         * 推断并设置main方法的定义类，找到运行的主类
         * */
         SpringApplication.run(CrmApplication.class, args);
-
     }
 }

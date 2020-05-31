@@ -12,7 +12,7 @@ spring:
     cache: false
 server:
   servlet:
-    context-path: /apk
+    context-path: /crm
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
@@ -26,7 +26,7 @@ mybatis:
 person:
   name: ${random.uuid}
   age: ${random.int}
-  happy: true
+  haPPy: true
   birth: 2010/12/01
   map: {k1: value1,k2: value2}
   list:
@@ -36,3 +36,5 @@ person:
   dog:
     name: ${person.name}`s orange
     age: 12
+apple:
+  name: 630909931@qq.com
