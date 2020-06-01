@@ -10,7 +10,7 @@ import javax.validation.constraints.Email;
 @Data
 @Validated//表示开启数据校验
 @Component
-@ConfigurationProperties(prefix = "apple")//是组件才可以自动配置
+@ConfigurationProperties(prefix = "apple")
 public class Apple {
     @Email(message = "your name should be email form ")
     private String name;
