@@ -15,6 +15,11 @@ public class IndexController {
         model.addAttribute("a","spring thymeleaf template");
         return "index";
     }
+    @RequestMapping("/utext")
+    public String text(Model model){
+        model.addAttribute("msg","<h1>hello denghuguang!</h1>");
+        return "utext";
+    }
 
 
 }
