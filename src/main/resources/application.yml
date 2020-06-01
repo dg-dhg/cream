@@ -10,6 +10,8 @@ spring:
     mode: HTML5
     encoding: UTF-8
     cache: false
+  mvc:
+    static-path-pattern: /**
 
 server:
   servlet:
@@ -39,7 +41,7 @@ person:
     age: 12
 apple:
   name: 630909931@qq.com
-debug: true
+debug: false
 ---
 spring:
   profiles: dev

@@ -19,5 +19,4 @@ public class HelloController {
         return String.format("hello world %s ",name );
     }
 
-
 }
