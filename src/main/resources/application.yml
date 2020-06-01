@@ -5,13 +5,9 @@ spring:
     password: 123456
     url: jdbc:mysql://localhost:3306/crm?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
   thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
     mode: HTML5
     encoding: UTF-8
     cache: false
-  mvc:
-    static-path-pattern: /**
 
 server:
   servlet:
@@ -44,7 +40,14 @@ apple:
 debug: false
 ---
 spring:
-  profiles: dev
+  profiles: prod
   http:
     encoding:
       charset: utf-8
+  thymeleaf:
+    cache: true
+---
+spring:
+  thymeleaf:
+    cache: false
+  profiles: dev

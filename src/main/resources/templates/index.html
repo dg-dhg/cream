@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
     <title>my project</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
-    <h1>welcome !</h1>
+    <h1>welcome to my thymeleaf!</h1>
+    <div th:text="${yourName}">
+    </div>
+    <p th:text="${a}"></p>
+
 </body>
 </html>

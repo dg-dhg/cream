@@ -1,1 +1,1 @@
-in static
+instatic
