@@ -45,7 +45,12 @@ spring:
     encoding:
       charset: utf-8
   thymeleaf:
-    cache: true
+    cache: false
+
+
+  mvc:
+    #自定义格式化器配置
+    date-format: yyyy-MM-dd
 ---
 spring:
   thymeleaf:
