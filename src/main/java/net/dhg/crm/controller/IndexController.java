@@ -27,5 +27,11 @@ public class IndexController {
         model.addAttribute("msg", Arrays.asList("denghuguang","limpidSkyCockroach"));
         return "list";
     }
+    @RequestMapping("/test")
+    public String test(Model model){
+        model.addAttribute("users",Arrays.asList("a","b","c","d"));
+
+        return "test";
+    }
 
 }
