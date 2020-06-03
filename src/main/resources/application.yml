@@ -1,43 +1,37 @@
 spring:
+#数据源
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/crm?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#模板引擎
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
     cache: false
+#国际化配置,配置信息的url是要配的
+  messages:
+    basename: i18n.login
 
-server:
-  servlet:
-    context-path: /crm
-#logging:
-#  pattern:
-#    console: "%d - %msg%n"
-##  path: /var/log/tomcat/
-#  file: /var/log/tomcat/sell.log
-#  level:
-#    com.alexey.LoggerTest: debug
+
+
+#对象关系映射框架
 mybatis:
   type-aliases-package: net.dhg.crm.entity
   mapper-locations: classpath:mapper/*Mapper.xml
-person:
-  name: ${random.uuid}
-  age: ${random.int}
-  haPPy: true
-  birth: 2010/12/01
-  map: {k1: value1,k2: value2}
-  list:
-    - ${person.apple:good}code #这是一个相当于 ((person.apple).isExist?person.apple:good).concat("code")
-    - girl
-    - music
-  dog:
-    name: ${person.name}`s orange
-    age: 12
-apple:
-  name: 630909931@qq.com
+
+#是否查看启用/未启用的配置类
 debug: false
+
+
+
+
+
+
+
+
+
 ---
 spring:
   profiles: prod
@@ -46,13 +40,23 @@ spring:
       charset: utf-8
   thymeleaf:
     cache: false
-
-
   mvc:
     #自定义格式化器配置
     date-format: yyyy-MM-dd
+
+
+
 ---
 spring:
   thymeleaf:
     cache: false
   profiles: dev
+
+
+  #logging:
+  #  pattern:
+  #    console: "%d - %msg%n"
+  ##  path: /var/log/tomcat/
+  #  file: /var/log/tomcat/sell.log
+  #  level:
+  #    com.alexey.LoggerTest: debug

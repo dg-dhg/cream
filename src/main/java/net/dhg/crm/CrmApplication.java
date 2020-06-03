@@ -1,6 +1,5 @@
 package net.dhg.crm;
 
-import net.dhg.crm.modelling.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 //这个注解的简单解释：由SpringBootConfiguration和EnableAutoConfiguration两个注解组成，前者同时标志着这是一个配置
