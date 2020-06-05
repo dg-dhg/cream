@@ -24,45 +24,89 @@
 </head>
 
 <body>
+<div class="page">
+    <div th:insert="~{index::indextopheader}"></div>
+    <div class="page-content d-flex align-items-stretch">
+        <div th:insert="~{/index::indexsidebar}"/>
+        <div class="content-inner">
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">Tables</h2>
+                </div>
+            </header>
+            <div th:insert="~{/tables::tablesbreadcrumb}"></div>
+            <section class="tables">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-11">
+                            <div class="card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard2" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                            <i
+                                                    class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard2"
+                                             class="dropdown-menu dropdown-menu-right has-shadow"><a href="#"
+                                                                                                     class="dropdown-item remove">
+                                            <i class="fa fa-times"></i>Close</a><a th:href="@{#}"
+                                                                                   class="dropdown-item edit">
+                                            <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="card-header d-flex align-items-center">
+                                        <h3 class="h4">Employees <a th:href="@{/employee/save}">添加</a></pre></h3>
+                                    </div>
+                                    <div class="card-body">
 
+                                        <div class="table-responsive">
 
-    <div th:insert="~{index::topheader}"></div>
-    <div th:insert="~{tables::sideandbottom}">
-        <div class="col-md-4 column">ta
-            <form role="form">
-                <div class="form-group">
-                    <label for="username">员工名</label><input type="text" class="form-control" id="username" />
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>uname</th>
+                                                    <th>departmentid</th>
+                                                    <th>gender</th>
+                                                    <th>email</th>
+                                                    <th>birth</th>
+                                                    <th>optional</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody th:each="employee:${employees}">
+                                                <tr>
+                                                    <th scope="row" th:text="${employee.getId()}"></th>
+                                                    <td th:text="${employee.getName()}">></td>
+                                                    <td th:text="${employee.getDepartment()}"></td>
+                                                    <td th:text="${employee.getGender()}"></td>
+                                                    <td th:text="${employee.getEmail()}"></td>
+                                                    <td>
+                                                        <pre th:text="${employee.getBirth()}"></pre>
+                                                    </td>
+                                                    <td>
+                                                        <pre><button type="button" class="button"
+                                                                     th:href="@{/employee/save}">添加</button><button
+                                                                type="button" class="button"
+                                                                th:href="@{/employee/edit}">编辑</button><button
+                                                                type="button" class="button"
+                                                                th:href="@{/employee/delete}">删除</button></pre>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="gender">员工性别</label><input type="email" class="form-control" id="gender" />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email </label><input type="email" class="form-control" id="email" />
-                </div>
-                <div class="form-group">
-                    <label for="">File input</label><input type="file" id="department" />
-                    <p class="help-block">
-                        Example block-level help text here.
-                    </p>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" />Check me out</label>
-                </div> <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+                <div th:insert="/tables::table"/>
+            </section>
+            <div th:insert="~{index::indexfooter}"></div>
         </div>
     </div>
-
-
-<!-- JavaScript files-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/popper.js/umd/popper.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendor/jquery.cookie/jquery.cookie.js"></script>
-<script src="vendor/chart.js/Chart.min.js"></script>
-<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-<!-- Main File-->
-<script src="js/front.js"></script>
-
-
+</div>
 </body>
 </html>
