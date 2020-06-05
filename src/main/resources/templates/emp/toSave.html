@@ -42,12 +42,12 @@
                             <div class="card">
                                 <div class="card-close">
                                     <div class="dropdown">
-                                        <button type="button" id="closeCard2" data-toggle="dropdown"
+                                        <button type="button" id="closeCard1" data-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
                                             <i
                                                     class="fa fa-ellipsis-v"></i></button>
-                                        <div aria-labelledby="closeCard2"
-                                             class="dropdown-menu dropdown-menu-right has-shadow"><a href="#"
+                                        <div aria-labelledby="closeCard1"
+                                             class="dropdown-menu dropdown-menu-right has-shadow"><a th:href="@{#}"
                                                                                                      class="dropdown-item remove">
                                             <i class="fa fa-times"></i>Close</a><a th:href="@{#}"
                                                                                    class="dropdown-item edit">
@@ -56,45 +56,50 @@
                                 </div>
                                 <div>
                                     <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">Employees <a th:href="@{/employee/save}">添加</a></pre></h3>
+                                        <h3 class="h4">提交表单</h3>
                                     </div>
                                     <div class="card-body">
 
                                         <div class="table-responsive">
-
-                                            <table class="table">
-                                                <thead>
-                                                <tr>
-                                                    <th>id</th>
-                                                    <th>uname</th>
-                                                    <th>departmentid</th>
-                                                    <th>gender</th>
-                                                    <th>email</th>
-                                                    <th>birth</th>
-                                                    <th>optional</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody th:each="employee:${employees}">
-                                                <tr>
-                                                    <th scope="row" th:text="${employee.getId()}"></th>
-                                                    <td th:text="${employee.getName()}">></td>
-                                                    <td th:text="${employee.getDepartment()}"></td>
-                                                    <td th:text="${employee.getGender()}"></td>
-                                                    <td th:text="${employee.getEmail()}"></td>
-                                                    <td>
-                                                        <pre th:text="${employee.getBirth()}"></pre>
-                                                    </td>
-                                                    <td>
-                                                        <pre><button type="button" class="button"
-                                                                     th:href="@{/employee/save}">添加</button><button
-                                                                type="button" class="button"
-                                                                th:href="@{/employee/edit}">编辑</button><button
-                                                                type="button" class="button"
-                                                                th:href="@{/employee/delete}">删除</button></pre>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                            <form role="form" method="post" th:action="@{/employee/save}">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ename</th>
+                                                        <th>departmentid</th>
+                                                        <th>gender</th>
+                                                        <th>email</th>
+                                                        <th>birth</th>
+                                                        <th>optional</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><input type="text" name="员工名"/></td>
+                                                        <td>
+                                                            <select>
+                                                                <option th:each="department:${departments}"
+                                                                        name="department"
+                                                                        th:text="${department.getDepartmentName()}"
+                                                                        th:value="${department.getId()}">
+                                                                </option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select><option >男</option>
+                                                                <option>女</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" name="员工名"/></td>
+                                                        <td><input type="text" name="员工名"/></td>
+                                                        <td>
+                                                            <pre><button type="button" class="button"
+                                                                         style="color: white;background-color: blue">提交</button></pre>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +107,6 @@
                         </div>
                     </div>
                 </div>
-                <div th:insert="/tables::table"/>
             </section>
             <div th:insert="~{index::indexfooter}"></div>
         </div>

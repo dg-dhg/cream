@@ -29,10 +29,13 @@
 <div class="page">
     <!-- Main Navbar-->
     <div th:insert="~{index::indextopheader}"></div>
-    <div class="page-content d-flex align-items-stretch" th:fragment="sideandbottom">
+    <div class="page-content d-flex align-items-stretch">
+
         <!-- Side Navbar -->
-        <div th:insert="~{index::indexsidebar}"/>
+        <div th:insert="~{/index::indexsidebar}"/>
+
         <div class="content-inner">
+
             <!-- Page Header-->
             <header class="page-header">
                 <div class="container-fluid">
@@ -41,17 +44,17 @@
             </header>
 
             <!-- Breadcrumb-->
-            <div class="breadcrumb-holder container-fluid">
+            <div class="breadcrumb-holder container-fluid" th:fragment="tablesbreadcrumb">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a th:href="@{index.html}">Home</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/index.html}">Home</a></li>
                     <li class="breadcrumb-item active">Tables</li>
                 </ul>
             </div>
 
-            <section class="tables">
-                <div class="container-fluid">
+            <section class="tables" >
+                <div class="container-fluid" th:fragment="table">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-11">
                             <div class="card">
                                 <div class="card-close">
                                     <div class="dropdown">
@@ -66,39 +69,48 @@
                                             <i class="fa fa-gear"></i>Edit</a></div>
                                     </div>
                                 </div>
-                                <div class="card-header d-flex align-items-center">
-                                    <h3 class="h4">Employees     <a th:href="@{/employee/save}">添加</a></pre></h3>
-                                </div>
-                                <div class="card-body">
+                                <div>
+                                    <div class="card-header d-flex align-items-center">
+                                        <h3 class="h4">Employees <a th:href="@{/employee/toSave}">添加</a></h3>
+                                    </div>
+                                    <div class="card-body">
 
-                                    <div class="table-responsive">
+                                        <div class="table-responsive">
 
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>uname</th>
-                                                <th>departmentid</th>
-                                                <th>gender</th>
-                                                <th>email</th>
-                                                <th>birth</th>
-                                                <th>optional</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody th:each="employee:${employees}">
-                                            <tr>
-                                                <th scope="row" th:text="${employee.getId()}"></th>
-                                                <td th:text="${employee.getName()}">></td>
-                                                <td th:text="${employee.getDepartment()}"></td>
-                                                <td th:text="${employee.getGender()}"></td>
-                                                <td th:text="${employee.getEmail()}"></td>
-                                                <td ><pre th:text="${employee.getBirth()}"></pre></td>
-                                                <td>
-                                                    <pre><button type="button" class="button" th:href="@{/employee/save}">添加</button><button type="button" class="button" th:href="@{/employee/edit}">编辑</button><button type="button" class="button" th:href="@{/employee/delete}">删除</button></pre>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>uname</th>
+                                                    <th>departmentid</th>
+                                                    <th>gender</th>
+                                                    <th>email</th>
+                                                    <th>birth</th>
+                                                    <th>optional</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody th:each="employee:${employees}">
+                                                <tr>
+                                                    <th scope="row" th:text="${employee.getId()}"></th>
+                                                    <td th:text="${employee.getName()}">></td>
+                                                    <td th:text="${employee.getDepartment()}"></td>
+                                                    <td th:text="${employee.getGender()}"></td>
+                                                    <td th:text="${employee.getEmail()}"></td>
+                                                    <td>
+                                                        <pre th:text="${employee.getBirth()}"></pre>
+                                                    </td>
+                                                    <td>
+                                                        <pre><button type="button" class="button"
+                                                                     th:href="@{/employee/save}">添加</button><button
+                                                                type="button" class="button"
+                                                                th:href="@{/employee/edit}">编辑</button><button
+                                                                type="button" class="button"
+                                                                th:href="@{/employee/delete}">删除</button></pre>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -106,21 +118,9 @@
                     </div>
                 </div>
             </section>
+
             <!-- Page Footer-->
-            <footer class="main-footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p>Copyright &copy; 2019.Company name All rights reserved.<a
-                                    href="https://www.51qianduan.com/">51前端</a></p>
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            <p></p>
-                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <div th:insert="index::indexfooter">            </div>
         </div>
     </div>
 </div>

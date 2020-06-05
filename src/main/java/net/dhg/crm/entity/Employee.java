@@ -18,6 +18,4 @@ public class Employee {
     private String email;
     private Department department;
     private Date birth;
-
-
 }
