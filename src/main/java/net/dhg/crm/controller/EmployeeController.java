@@ -35,7 +35,7 @@ public class EmployeeController {
     }
     @RequestMapping("/save")
     public  String save(){
-        return "redirect:employee/list";
+        return "redirect:/employee/list";
     }
 
 
