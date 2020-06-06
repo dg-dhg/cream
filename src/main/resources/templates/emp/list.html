@@ -38,7 +38,71 @@
             </header>
             <div th:insert="~{/tables::tablesbreadcrumb}"></div>
             <section class="tables">
-                <div th:insert="~{/tables::table}"/>
+
+                <div class="container-fluid" th:fragment="table">
+                    <div class="row">
+                        <div class="col-lg-11">
+                            <div class="card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard1" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i
+                                                class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard1"
+                                             class="dropdown-menu dropdown-menu-right has-shadow"><a href="#"
+                                                                                                     class="dropdown-item remove">
+                                            <i class="fa fa-times"></i>Close</a><a th:href="@{#}"
+                                                                                   class="dropdown-item edit">
+                                            <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="card-header d-flex align-items-center">
+                                        <h3 class="h4">Employees <a th:href="@{/employee/toSave}">添加</a></h3>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="table-responsive">
+
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>uname</th>
+                                                    <th>departmentName</th>
+                                                    <th>gender</th>
+                                                    <th>email</th>
+                                                    <th>birth</th>
+                                                    <th>optional</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody th:each="employee:${employees}">
+                                                <tr>
+                                                    <th scope="row" th:text="${employee.getId()}"></th>
+                                                    <td th:text="${employee.getName()}"></td>
+                                                    <td th:text="${deptsDao.getDepartmentById(employee.getDepartmentId()).getDepartmentName()}"></td>
+                                                    <td th:text="${employee.getGender()==0?'女':'男'}"></td>
+                                                    <td th:text="${employee.getEmail()}"></td>
+                                                    <td>
+                                                        <pre th:text="${employee.getBirth()}"></pre>
+                                                    </td>
+                                                    <td>
+                                                        <pre><a class="btn btn-group-sm btn-primary"
+                                                                th:href="@{/employee/toSave}+'?id='+${employee.getId()}">编辑</a><a
+                                                                class="btn btn-group-sm btn-primary"
+                                                                th:href="@{/employee/delete}+'?id='+${employee.getId()}">删除</a></pre>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
             <div th:insert="~{index::indexfooter}"></div>
         </div>

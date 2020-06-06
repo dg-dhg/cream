@@ -1,6 +1,7 @@
 package net.dhg.crm.dao;
 
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import net.dhg.crm.entity.Department;
 import net.dhg.crm.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +28,18 @@ public class EmployeeDao {
 
     }
     private static Integer initId=1057;
+
     //新增员工
     public void save(Employee employee){
         //主键为空
         if(employee.getId()==null){
             employee.setId(initId++);
         }
+        System.out.println("debug"+employee);
         employees.put(employee.getId(),employee);
     }
+
+
     //全部员工
     public Collection<Employee> getEmployees(){
         return employees.values();
@@ -48,9 +53,13 @@ public class EmployeeDao {
         }
         return employee;
     }
+
+
+    //删除员工
     public void deleteEmployee(Integer id){
         employees.remove(id);
     }
+
 
 
 
