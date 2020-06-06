@@ -41,7 +41,7 @@
                         <label>员工名</label><input th:value="${emp!=null?emp.getName():''}" type="text"
                                                  name="name" class="form-control"/>
                     </div>
-                    <input name="id" type="hidden" th:value="${emp!=null?emp.getId():''}">
+                    <input name="id" type="hidden" th:value="${emp!=null?emp.getId():-1}">
 
                     <div class="form-group">
                         <label>邮箱</label><input name="email" th:value="${emp!=null?emp.getEmail():''}"
@@ -59,7 +59,7 @@
                         <label>生日</label>
                         <input type="text" name="birth"
                                class="form-control"
-                               th:value="${#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm')}">
+                               th:value="${emp!=null?#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm'):''}">
                     </div>
                     <div>
                         <select name="gender">
@@ -74,5 +74,15 @@
         </div>
     </div>
 </div>
+
+<!-- JavaScript files-->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/vendor/jquery.cookie/jquery.cookie.js}"></script>
+<script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+<script th:src="@{/vendor/jquery-validation/jquery.validate.min.js}"></script>
+<!-- Main File-->
+<script th:src="@{/js/front.js}"></script>
 </body>
 </html>

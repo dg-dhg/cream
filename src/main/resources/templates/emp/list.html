@@ -84,7 +84,7 @@
                                                     <td th:text="${employee.getGender()==0?'女':'男'}"></td>
                                                     <td th:text="${employee.getEmail()}"></td>
                                                     <td>
-                                                        <pre th:text="${employee.getBirth()}"></pre>
+                                                        <pre th:text="${#dates.format(employee.getBirth(),'yyyy-MM-dd HH:mm')}"></pre>
                                                     </td>
                                                     <td>
                                                         <pre><a class="btn btn-group-sm btn-primary"

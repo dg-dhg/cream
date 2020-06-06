@@ -30,6 +30,15 @@ public class EmployeeController {
         return "emp/list";
     }
 
+
+    // 新增后跳转映射
+    @RequestMapping("/save")
+    public String save(Employee employee) {
+        System.out.println(String.format("debug==>%s", employee));
+        employeeDao.save(employee);
+        return "redirect:/employee/list";
+    }
+
     //新增或者编辑页面跳转映射
     @RequestMapping("/toSave")
     public String toSave(Model model, @RequestParam(required = false) Integer id) {
@@ -42,13 +51,9 @@ public class EmployeeController {
         return "emp/toSave";
     }
 
-    // 新增后跳转映射
-    @RequestMapping("/save")
-    public String save(Employee employee) {
-        System.out.println(String.format("debug==>%s", employee));
-        employeeDao.save(employee);
+    @RequestMapping("/delete")
+    public String delete(@RequestParam("id") Integer id) {
+        employeeDao.deleteEmployee(id);
         return "redirect:/employee/list";
     }
-
-
 }

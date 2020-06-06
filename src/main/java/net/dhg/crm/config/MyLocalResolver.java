@@ -13,7 +13,7 @@ public class MyLocalResolver implements LocaleResolver {
     @Override
     public Locale resolveLocale(HttpServletRequest request) {
         String language = request.getParameter("lang");
-        log.info(language);
+        log.info("debug local=====>"+language);
         Locale locale=Locale.getDefault();//若没有就是用默认的
         if (!StringUtils.isEmpty(language)){
             String[] localeString= language.split("_");

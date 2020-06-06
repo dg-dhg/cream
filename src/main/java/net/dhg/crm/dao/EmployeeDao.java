@@ -22,9 +22,9 @@ public class EmployeeDao {
 
     static {
         employees.put(1001,new Employee(1001,Employee.MALE,"li","630909931@qq.com",102,new Date(2013,8,12)));
-        employees.put(1002,new Employee(1005,Employee.MALE,"hong","630909931@qq.com",101,new Date(2012,1,12)));
-        employees.put(1003,new Employee(1011,Employee.MALE,"liao","630909931@qq.com",103,new Date(2019,2,12)));
-        employees.put(1004,new Employee(1056,Employee.MALE,"zhang","630909931@qq.com",104,new Date(2009,5,12)));
+        employees.put(1005,new Employee(1005,Employee.MALE,"hong","630909931@qq.com",101,new Date(2012,1,12)));
+        employees.put(1003,new Employee(1003,Employee.MALE,"liao","630909931@qq.com",103,new Date(2019,2,12)));
+        employees.put(1056,new Employee(1056,Employee.MALE,"zhang","630909931@qq.com",104,new Date(2009,5,12)));
 
     }
     private static Integer initId=1057;
@@ -32,7 +32,7 @@ public class EmployeeDao {
     //新增员工
     public void save(Employee employee){
         //主键为空
-        if(employee.getId()==null){
+        if(employee.getId()==null || employee.getId()<0){
             employee.setId(initId++);
         }
         System.out.println("debug"+employee);
