@@ -2,6 +2,7 @@ package net.dhg.crm.controller;
 
 import net.dhg.crm.dao.DepartmentDao;
 import net.dhg.crm.dao.EmployeeDao;
+import net.dhg.crm.entity.Department;
 import net.dhg.crm.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,9 @@ public class EmployeeController {
     @RequestMapping("/list")
     public String employeeTable(Model model) {
         Collection<Employee> employees = employeeDao.getEmployees();
+        Collection<Department> departments=departmentDao.getDepartment();
         model.addAttribute("employees", employees);
+        model.addAttribute("deptsDao", departmentDao);
         return "emp/list";
     }
 
@@ -34,7 +37,9 @@ public class EmployeeController {
         return "emp/toSave";
     }
     @RequestMapping("/save")
-    public  String save(){
+    public  String save(Employee employee){
+        System.out.println(String.format("debug==>%s",employee));
+        employeeDao.save(employee);
         return "redirect:/employee/list";
     }
 

@@ -20,9 +20,9 @@ public class DepartmentDao {
     static {
         departments = new HashMap<>();
         departments.put(101,new Department("工信部",101));
-        departments.put(105,new Department("友爱部",102));
+        departments.put(103,new Department("友爱部",102));
         departments.put(102,new Department("技术部",103));
-        departments.put(103,new Department("人事部",104));
+        departments.put(104,new Department("人事部",104));
     }
     //取数据表
     public  Collection<Department> getDepartment(){

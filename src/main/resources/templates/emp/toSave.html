@@ -75,26 +75,29 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td><input type="text" name="员工名"/></td>
+                                                        <td><input type="text" name="name"/></td>
                                                         <td>
-                                                            <select>
-                                                                <option th:each="department:${departments}"
+                                                            <select name="departmentId">
+                                                                <option th:each="dpment:${departments}"
                                                                         name="department"
-                                                                        th:text="${department.getDepartmentName()}"
-                                                                        th:value="${department.getId()}">
+                                                                        th:text="${dpment.getDepartmentName()}"
+                                                                        th:value="${dpment.getId()}">
                                                                 </option>
                                                             </select>
+
                                                         </td>
                                                         <td>
-                                                            <select><option >男</option>
-                                                                <option>女</option>
+                                                            <select name="gender">
+                                                                <option value="1">男</option>
+                                                                <option value="0">女</option>
                                                             </select>
                                                         </td>
-                                                        <td><input type="text" name="员工名"/></td>
-                                                        <td><input type="text" name="员工名"/></td>
+                                                        <td><input type="email" name="email"></td>
+                                                        <td><input type="date" name="birth"></td>
                                                         <td>
-                                                            <pre><button type="button" class="button"
-                                                                         style="color: white;background-color: blue">提交</button></pre>
+                                                            <button type="submit"
+                                                                    style="color: white;background-color: blue">提交
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                     </tbody>

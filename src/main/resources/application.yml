@@ -13,6 +13,9 @@ spring:
 #国际化配置,配置信息的url是要配的
   messages:
     basename: i18n.login
+  #mvc配置
+  mvc:
+    date-format: yyyy-MM-dd
 
 
 

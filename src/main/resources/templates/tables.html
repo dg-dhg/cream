@@ -82,7 +82,7 @@
                                                 <tr>
                                                     <th>id</th>
                                                     <th>uname</th>
-                                                    <th>departmentid</th>
+                                                    <th>departmentName</th>
                                                     <th>gender</th>
                                                     <th>email</th>
                                                     <th>birth</th>
@@ -93,7 +93,7 @@
                                                 <tr>
                                                     <th scope="row" th:text="${employee.getId()}"></th>
                                                     <td th:text="${employee.getName()}">></td>
-                                                    <td th:text="${employee.getDepartment()}"></td>
+                                                    <td th:text="${deptsDao.getDepartmentById(employee.getDepartmentId()).getDepartmentName()}"></td>
                                                     <td th:text="${employee.getGender()}"></td>
                                                     <td th:text="${employee.getEmail()}"></td>
                                                     <td>
