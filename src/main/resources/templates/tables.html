@@ -94,7 +94,7 @@
                                                     <th scope="row" th:text="${employee.getId()}"></th>
                                                     <td th:text="${employee.getName()}">></td>
                                                     <td th:text="${deptsDao.getDepartmentById(employee.getDepartmentId()).getDepartmentName()}"></td>
-                                                    <td th:text="${employee.getGender()}"></td>
+                                                    <td th:text="${employee.getGender()==0?'女':'男'}"></td>
                                                     <td th:text="${employee.getEmail()}"></td>
                                                     <td>
                                                         <pre th:text="${employee.getBirth()}"></pre>
